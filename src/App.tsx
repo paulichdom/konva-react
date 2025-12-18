@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Stage, Layer, Rect, Circle, Text } from 'react-konva';
+import type Konva from 'konva';
 
 export const App = () => {
   const rectShapeRef = React.useRef(null);
@@ -9,6 +10,10 @@ export const App = () => {
   useEffect(() => {
     console.log(rectShapeRef.current)
   }, [])
+
+  const handleClick = (event: Konva.KonvaEventObject<MouseEvent>) => {
+    console.log(event.target);
+  };
 
   return (
     <Stage width={window.innerWidth} height={window.innerHeight}>
@@ -42,6 +47,7 @@ export const App = () => {
               y: e.target.y(),
             });
           }}
+          onClick={handleClick}
         />
       </Layer>
     </Stage>
