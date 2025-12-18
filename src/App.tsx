@@ -1,15 +1,21 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stage, Layer, Rect, Circle, Text } from 'react-konva';
 
 export const App = () => {
+  const rectShapeRef = React.useRef(null);
   const [rectPos, setRectPos] = useState({ x: 20, y: 50 });
   const [circlePos, setCirclePos] = useState({ x: 200, y: 100 });
+
+  useEffect(() => {
+    console.log(rectShapeRef.current)
+  }, [])
 
   return (
     <Stage width={window.innerWidth} height={window.innerHeight}>
       <Layer>
         <Text text="Try to drag shapes" />
         <Rect
+          ref={rectShapeRef}
           x={rectPos.x}
           y={rectPos.y}
           width={100}
