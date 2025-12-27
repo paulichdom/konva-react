@@ -2,8 +2,13 @@ import { useState } from 'react';
 import { CanvasPortal } from './docs-react/CanvasPortal';
 import { NodesAndExport } from './docs-react/NodesAndExport';
 import { ComplexAnimations } from './docs-react/ComplexAnimations';
+import { CustomShape } from './docs-react/CustomShape';
 
-type ComponentKey = 'canvas-portal' | 'nodes-and-export' | 'complex-animations';
+type ComponentKey =
+  'canvas-portal' |
+  'nodes-and-export' |
+  'complex-animations' |
+  'custom-shape';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -17,6 +22,10 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'complex-animations': {
     name: 'Complex Animations',
     component: ComplexAnimations
+  },
+  'custom-shape': {
+    name: 'Custom Shape',
+    component: CustomShape
   }
 };
 
