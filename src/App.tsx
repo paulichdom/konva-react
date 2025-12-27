@@ -4,13 +4,15 @@ import { NodesAndExport } from './docs-react/NodesAndExport';
 import { ComplexAnimations } from './docs-react/ComplexAnimations';
 import { CustomShape } from './docs-react/CustomShape';
 import { DOMPortal } from './docs-react/DOMPortal';
+import { DragAndDrop } from './docs-react/DragAndDrop';
 
 type ComponentKey =
   'canvas-portal' |
   'nodes-and-export' |
   'complex-animations' |
   'custom-shape' |
-  'dom-portal';
+  'dom-portal' |
+  'drag-and-drop';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -32,6 +34,10 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'dom-portal': {
     name: 'DOM Portal',
     component: DOMPortal
+  },
+  'drag-and-drop': {
+    name: 'Drag and drop',
+    component: DragAndDrop
   }
 
 };
