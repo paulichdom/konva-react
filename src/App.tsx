@@ -5,6 +5,7 @@ import { ComplexAnimations } from './docs-react/ComplexAnimations';
 import { CustomShape } from './docs-react/CustomShape';
 import { DOMPortal } from './docs-react/DOMPortal';
 import { DragAndDrop } from './docs-react/DragAndDrop';
+import { DropImage } from './docs-react/DropImage';
 
 type ComponentKey =
   'canvas-portal' |
@@ -12,7 +13,8 @@ type ComponentKey =
   'complex-animations' |
   'custom-shape' |
   'dom-portal' |
-  'drag-and-drop';
+  'drag-and-drop' |
+  'drop-image';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -38,7 +40,11 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'drag-and-drop': {
     name: 'Drag and drop',
     component: DragAndDrop
-  }
+  },
+  'drop-image': {
+    name: 'Drop Image',
+    component: DropImage
+  },
 
 };
 
