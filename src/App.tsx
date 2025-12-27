@@ -3,12 +3,14 @@ import { CanvasPortal } from './docs-react/CanvasPortal';
 import { NodesAndExport } from './docs-react/NodesAndExport';
 import { ComplexAnimations } from './docs-react/ComplexAnimations';
 import { CustomShape } from './docs-react/CustomShape';
+import { DOMPortal } from './docs-react/DOMPortal';
 
 type ComponentKey =
   'canvas-portal' |
   'nodes-and-export' |
   'complex-animations' |
-  'custom-shape';
+  'custom-shape' |
+  'dom-portal';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -26,7 +28,12 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'custom-shape': {
     name: 'Custom Shape',
     component: CustomShape
+  },
+  'dom-portal': {
+    name: 'DOM Portal',
+    component: DOMPortal
   }
+
 };
 
 export const App = () => {
