@@ -7,6 +7,7 @@ import { DOMPortal } from './docs-react/DOMPortal';
 import { DragAndDrop } from './docs-react/DragAndDrop';
 import { DropImage } from './docs-react/DropImage';
 import { CanvasShapeEvent } from './docs-react/CanvasShapeEvent';
+import { CanvasFilters } from './docs-react/CanvasFilters';
 
 type ComponentKey =
   'canvas-portal' |
@@ -16,7 +17,8 @@ type ComponentKey =
   'dom-portal' |
   'drag-and-drop' |
   'drop-image' |
-  'canvas-shape-event';
+  'canvas-shape-event' |
+  'canvas-filters';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -50,6 +52,10 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'canvas-shape-event': {
     name: 'Canvas shape event',
     component: CanvasShapeEvent
+  },
+  'canvas-filters': {
+    name: 'Canvas Filters',
+    component: CanvasFilters
   },
 };
 

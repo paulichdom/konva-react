@@ -15,8 +15,8 @@ const generateShapes = () => {
 export const CanvasShapeEvent = () => {
   const [stars, setStars] = React.useState(generateShapes());
 
-  const handleDragStart = (e: Konva.KonvaEventObject<DragEvent>) => {
-    const id = e.target?.id();
+  const handleDragStart = (event: Konva.KonvaEventObject<DragEvent>) => {
+    const id = event.target?.id();
     setStars(
       stars.map((star) => {
         return {
@@ -27,7 +27,7 @@ export const CanvasShapeEvent = () => {
     );
   };
 
-  const handleDragEnd = (e: Konva.KonvaEventObject<DragEvent>) => {
+  const handleDragEnd = (_event: Konva.KonvaEventObject<DragEvent>) => {
     setStars(
       stars.map((star) => {
         return {
