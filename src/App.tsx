@@ -12,6 +12,7 @@ import { FreeDrawing } from './docs-react/FreeDrawing';
 import { CanvasImages } from './docs-react/CanvasImages';
 import { CanvasShapes } from './docs-react/CanvasShapes';
 import { SimpleAnimations } from './docs-react/SimpleAnimations';
+import { KonvaTransformer } from './docs-react/KonvaTransformer';
 
 type ComponentKey =
   'canvas-portal' |
@@ -26,7 +27,8 @@ type ComponentKey =
   'free-drawing' |
   'canvas-images' |
   'canvas-shapes' |
-  'simple-animations';
+  'simple-animations' |
+  'konva-transformer';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -80,6 +82,10 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'simple-animations': {
     name: 'Simple Animations',
     component: SimpleAnimations
+  },
+  'konva-transformer': {
+    name: 'Konva Transformer',
+    component: KonvaTransformer
   },
 };
 
