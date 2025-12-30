@@ -10,6 +10,7 @@ import { CanvasShapeEvent } from './docs-react/CanvasShapeEvent';
 import { CanvasFilters } from './docs-react/CanvasFilters';
 import { FreeDrawing } from './docs-react/FreeDrawing';
 import { CanvasImages } from './docs-react/CanvasImages';
+import { CanvasShapes } from './docs-react/CanvasShapes';
 
 type ComponentKey =
   'canvas-portal' |
@@ -22,7 +23,8 @@ type ComponentKey =
   'canvas-shape-event' |
   'canvas-filters' |
   'free-drawing' |
-  'canvas-images';
+  'canvas-images' |
+  'canvas-shapes';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -68,6 +70,10 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'canvas-images': {
     name: 'Canvas Images',
     component: CanvasImages
+  },
+  'canvas-shapes': {
+    name: 'Canvas Shapes',
+    component: CanvasShapes
   },
 };
 
