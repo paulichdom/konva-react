@@ -13,6 +13,7 @@ import { CanvasImages } from './docs-react/CanvasImages';
 import { CanvasShapes } from './docs-react/CanvasShapes';
 import { SimpleAnimations } from './docs-react/SimpleAnimations';
 import { KonvaTransformer } from './docs-react/KonvaTransformer';
+import { CanvasUndoRedo } from './docs-react/CanvasUndoRedo';
 
 type ComponentKey =
   'canvas-portal' |
@@ -28,7 +29,8 @@ type ComponentKey =
   'canvas-images' |
   'canvas-shapes' |
   'simple-animations' |
-  'konva-transformer';
+  'konva-transformer' |
+  'canvas-undo-redo';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -86,6 +88,10 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'konva-transformer': {
     name: 'Konva Transformer',
     component: KonvaTransformer
+  },
+  'canvas-undo-redo': {
+    name: 'Canvas Undo / Redo',
+    component: CanvasUndoRedo
   },
 };
 
