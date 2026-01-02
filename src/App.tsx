@@ -14,6 +14,7 @@ import { CanvasShapes } from './docs-react/CanvasShapes';
 import { SimpleAnimations } from './docs-react/SimpleAnimations';
 import { KonvaTransformer } from './docs-react/KonvaTransformer';
 import { CanvasUndoRedo } from './docs-react/CanvasUndoRedo';
+import { NodeZIndex } from './docs-react/NodeZIndex';
 
 type ComponentKey =
   'canvas-portal' |
@@ -30,7 +31,8 @@ type ComponentKey =
   'canvas-shapes' |
   'simple-animations' |
   'konva-transformer' |
-  'canvas-undo-redo';
+  'canvas-undo-redo' |
+  'node-z-index';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -92,6 +94,10 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'canvas-undo-redo': {
     name: 'Canvas Undo / Redo',
     component: CanvasUndoRedo
+  },
+  'node-z-index': {
+    name: 'Node Z Index',
+    component: NodeZIndex
   },
 };
 
