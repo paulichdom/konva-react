@@ -1,21 +1,21 @@
 import { useState } from 'react';
-import { CanvasPortal } from './konva-docs-react/CanvasPortal';
-import { NodesAndExport } from './konva-docs-react/NodesAndExport';
-import { ComplexAnimations } from './konva-docs-react/ComplexAnimations';
-import { CustomShape } from './konva-docs-react/CustomShape';
-import { DOMPortal } from './konva-docs-react/DOMPortal';
-import { DragAndDrop } from './konva-docs-react/DragAndDrop';
-import { DropImage } from './konva-docs-react/DropImage';
-import { CanvasShapeEvent } from './konva-docs-react/CanvasShapeEvent';
-import { CanvasFilters } from './konva-docs-react/CanvasFilters';
-import { FreeDrawing } from './konva-docs-react/FreeDrawing';
-import { CanvasImages } from './konva-docs-react/CanvasImages';
-import { CanvasShapes } from './konva-docs-react/CanvasShapes';
-import { SimpleAnimations } from './konva-docs-react/SimpleAnimations';
-import { KonvaTransformer } from './konva-docs-react/KonvaTransformer';
-import { CanvasUndoRedo } from './konva-docs-react/CanvasUndoRedo';
-import { NodeZIndex } from './konva-docs-react/NodeZIndex';
-import { ToggleComponent } from './xstate-docs/quick-start/ToggleComponent';
+import { CanvasPortal } from './konva/react/CanvasPortal';
+import { NodesAndExport } from './konva/react/NodesAndExport';
+import { ComplexAnimations } from './konva/react/ComplexAnimations';
+import { CustomShape } from './konva/react/CustomShape';
+import { DOMPortal } from './konva/react/DOMPortal';
+import { DragAndDrop } from './konva/react/DragAndDrop';
+import { DropImage } from './konva/react/DropImage';
+import { CanvasShapeEvent } from './konva/react/CanvasShapeEvent';
+import { CanvasFilters } from './konva/react/CanvasFilters';
+import { FreeDrawing } from './konva/react/FreeDrawing';
+import { CanvasImages } from './konva/react/CanvasImages';
+import { CanvasShapes } from './konva/react/CanvasShapes';
+import { SimpleAnimations } from './konva/react/SimpleAnimations';
+import { KonvaTransformer } from './konva/react/KonvaTransformer';
+import { CanvasUndoRedo } from './konva/react/CanvasUndoRedo';
+import { NodeZIndex } from './konva/react/NodeZIndex';
+import { ToggleComponent } from './xstate/quick-start/ToggleComponent';
 
 type ComponentKey =
   'canvas-portal' |
