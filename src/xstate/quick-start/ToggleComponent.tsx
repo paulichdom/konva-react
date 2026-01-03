@@ -4,10 +4,14 @@ import { toggleMachine } from "./toggleMachine";
 export const ToggleComponent = () => {
   const [state, send] = useMachine(toggleMachine);
   const stateValue = state.value
+  const count = state.context.count
+
+  console.log('count type: ', typeof count)
 
   return (
     <div>
       <div>Value: {stateValue.toString()}</div>
+      <div>Context: {count}</div>
       <button
         onClick={() => send({ type: 'toggle' })}
       >
