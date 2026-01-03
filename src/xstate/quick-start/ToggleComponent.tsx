@@ -2,11 +2,9 @@ import { useMachine } from "@xstate/react"
 import { toggleMachine } from "./toggleMachine";
 
 export const ToggleComponent = () => {
-  const [state, send] = useMachine(toggleMachine);
+  const [state, send] = useMachine(toggleMachine, { input: { maxCount: 10 } });
   const stateValue = state.value
   const count = state.context.count
-
-  console.log('count type: ', typeof count)
 
   return (
     <div>
