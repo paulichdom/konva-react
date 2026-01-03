@@ -18,7 +18,7 @@ export const NodesAndExport = () => {
   const [circlePos, setCirclePos] = useState({ x: 200, y: 100 });
 
   useEffect(() => {
-    console.log(rectShapeRef.current)
+    // console.log(rectShapeRef.current)
   }, [])
 
   const handleClick = (event: Konva.KonvaEventObject<MouseEvent>) => {

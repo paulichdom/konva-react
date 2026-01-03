@@ -8,7 +8,8 @@ export const toggleMachine = createMachine({
       on: { toggle: "Active" },
     },
     Active: {
-      on: { toggle: 'Inactive' }
+      on: { toggle: 'Inactive' },
+      after: { 2000: 'Inactive' }
     }
   }
 })
