@@ -1,8 +1,9 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { createMachine } from "xstate"
 import { atomWithMachine } from "jotai-xstate"
 import { createBrowserInspector } from '@statelyai/inspect';
 import { atom, useAtom, Provider, createStore } from "jotai"
+import type { Atom } from "jotai";
 
 const { inspect } = createBrowserInspector({
   iframe: document.getElementById('inspector-iframe') as HTMLIFrameElement | null
@@ -26,11 +27,14 @@ const createLightMachine = (initial: string) => createMachine({
   }
 })
 
-const lightAtom = atomWithMachine(
-  (get) => createLightMachine(get(initialLightAtom)),
+const createLightAtom = (initial: Atom<string>) => atomWithMachine(
+  (get) => createLightMachine(get(initial)),
   {
     inspect
-  });
+  }
+);
+
+const lightAtomAtom = atom(createLightAtom(atom('green')))
 
 const fetchLightMessage = async (light: string) => {
   await new Promise((r) => setTimeout(r, 1500))
@@ -38,6 +42,7 @@ const fetchLightMessage = async (light: string) => {
 }
 
 const asyncMessageAtom = atom(async (get) => {
+  const lightAtom = get(lightAtomAtom)
   const light = get(lightAtom).value
   const message = await fetchLightMessage(light as string);
   return message
@@ -54,33 +59,25 @@ export const JotaiXStateApp = () => {
     <>
       <div>
         <Provider store={store1}>
-          <Light />
-          <Light />
-          <SetInitialLight />
+          <Light initial={atom('yellow')} />
         </Provider>
       </div>
       <div>
         <Provider store={store2}>
-          <Light />
-          <Light />
+          <Light initial={atom('red')} />
         </Provider>
       </div>
     </>
   )
 }
 
-const SetInitialLight = () => {
-  const [, set] = useAtom(initialLightAtom)
-
-  return (
-    <button onClick={() => set("red")}>
-      Set initial light to red
-    </button>
-  )
-}
-
-export const Light = () => {
+export const Light = ({ initial }: { initial: Atom<string> }) => {
+  const [lightAtom, setLightAtom] = useAtom(lightAtomAtom)
   const [state, send] = useAtom(lightAtom);
+
+  useEffect(() => {
+    setLightAtom(createLightAtom(initial))
+  }, [initial, setLightAtom])
 
   const handleClick = () => {
     send({ type: 'NEXT' })
