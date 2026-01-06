@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { createMachine } from "xstate"
 import { atomWithMachine } from "jotai-xstate"
 import { createBrowserInspector } from '@statelyai/inspect';
-import { atom, useAtom } from "jotai"
+import { atom, useAtom, Provider } from "jotai"
 
 const { inspect } = createBrowserInspector({
   iframe: document.getElementById('inspector-iframe') as HTMLIFrameElement | null
@@ -46,6 +46,25 @@ const LightMessage = () => {
     <text x={100} y={20}>
       {message}
     </text>
+  )
+}
+
+export const JotaiXStateApp = () => {
+  return (
+    <>
+      <div>
+        <Provider>
+          <Light />
+          <Light />
+        </Provider>
+      </div>
+      <div>
+        <Provider>
+          <Light />
+          <Light />
+        </Provider>
+      </div>
+    </>
   )
 }
 

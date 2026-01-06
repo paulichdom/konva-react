@@ -16,7 +16,7 @@ import { KonvaTransformer } from './konva/react/KonvaTransformer';
 import { CanvasUndoRedo } from './konva/react/CanvasUndoRedo';
 import { NodeZIndex } from './konva/react/NodeZIndex';
 import { ToggleComponent } from './xstate/quick-start/ToggleComponent';
-import { Light } from './xstate/jotai-xstate/Light';
+import { JotaiXStateApp } from './xstate/jotai-xstate/JotaiXStateApp';
 
 type ComponentKey =
   'canvas-portal' |
@@ -109,7 +109,7 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   },
   'jotai-xstate-light': {
     name: 'Jotai - xState: light',
-    component: Light
+    component: JotaiXStateApp
   },
 };
 
