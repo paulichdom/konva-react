@@ -52,3 +52,10 @@ h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+#inspector-iframe {
+  width: 150vw;
+  height: 75vw;
+  transform: scale(0.666666666);
+  transform-origin: left-bottoms;
+}

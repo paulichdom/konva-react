@@ -16,6 +16,7 @@ import { KonvaTransformer } from './konva/react/KonvaTransformer';
 import { CanvasUndoRedo } from './konva/react/CanvasUndoRedo';
 import { NodeZIndex } from './konva/react/NodeZIndex';
 import { ToggleComponent } from './xstate/quick-start/ToggleComponent';
+import { Light } from './xstate/jotai-xstate/Light';
 
 type ComponentKey =
   'canvas-portal' |
@@ -34,7 +35,8 @@ type ComponentKey =
   'konva-transformer' |
   'canvas-undo-redo' |
   'node-z-index' |
-  'xstate-toggle-machine';
+  'xstate-toggle-machine' |
+  'jotai-xstate-light';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -104,6 +106,10 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'xstate-toggle-machine': {
     name: 'xState - Toggle Machine',
     component: ToggleComponent
+  },
+  'jotai-xstate-light': {
+    name: 'Jotai - xState: light',
+    component: Light
   },
 };
 
