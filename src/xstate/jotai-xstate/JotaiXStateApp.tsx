@@ -2,15 +2,17 @@ import { Suspense } from "react";
 import { createMachine } from "xstate"
 import { atomWithMachine } from "jotai-xstate"
 import { createBrowserInspector } from '@statelyai/inspect';
-import { atom, useAtom, Provider } from "jotai"
+import { atom, useAtom, Provider, createStore } from "jotai"
 
 const { inspect } = createBrowserInspector({
   iframe: document.getElementById('inspector-iframe') as HTMLIFrameElement | null
 });
 
-const lightMachine = createMachine({
+const initialLightAtom = atom("green")
+
+const createLightMachine = (initial: string) => createMachine({
   id: 'light',
-  initial: 'green',
+  initial,
   states: {
     green: {
       on: { NEXT: 'yellow' }
@@ -24,9 +26,11 @@ const lightMachine = createMachine({
   }
 })
 
-const lightAtom = atomWithMachine(lightMachine, {
-  inspect
-});
+const lightAtom = atomWithMachine(
+  (get) => createLightMachine(get(initialLightAtom)),
+  {
+    inspect
+  });
 
 const fetchLightMessage = async (light: string) => {
   await new Promise((r) => setTimeout(r, 1500))
@@ -39,32 +43,39 @@ const asyncMessageAtom = atom(async (get) => {
   return message
 })
 
-const LightMessage = () => {
-  const [message] = useAtom(asyncMessageAtom)
-
-  return (
-    <text x={100} y={20}>
-      {message}
-    </text>
-  )
-}
-
 export const JotaiXStateApp = () => {
+  const store1 = createStore()
+  store1.set(initialLightAtom, "yellow")
+
+  const store2 = createStore()
+  store2.set(initialLightAtom, "red")
+
   return (
     <>
       <div>
-        <Provider>
+        <Provider store={store1}>
           <Light />
           <Light />
+          <SetInitialLight />
         </Provider>
       </div>
       <div>
-        <Provider>
+        <Provider store={store2}>
           <Light />
           <Light />
         </Provider>
       </div>
     </>
+  )
+}
+
+const SetInitialLight = () => {
+  const [, set] = useAtom(initialLightAtom)
+
+  return (
+    <button onClick={() => set("red")}>
+      Set initial light to red
+    </button>
   )
 }
 
@@ -87,6 +98,16 @@ export const Light = () => {
         <LightMessage />
       </Suspense>
     </svg>
+  )
+}
+
+const LightMessage = () => {
+  const [message] = useAtom(asyncMessageAtom)
+
+  return (
+    <text x={100} y={20}>
+      {message}
+    </text>
   )
 }
 
