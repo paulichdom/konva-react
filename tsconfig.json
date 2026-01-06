@@ -5,6 +5,8 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
+    "strictNullChecks": true,
+    "skipLibCheck": true,
     "lib": [
       "ES6",
       "DOM"
