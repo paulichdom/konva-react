@@ -17,6 +17,7 @@ import { CanvasUndoRedo } from './konva/react/CanvasUndoRedo';
 import { NodeZIndex } from './konva/react/NodeZIndex';
 import { ToggleComponent } from './xstate/quick-start/ToggleComponent';
 import { JotaiXStateApp } from './xstate/jotai-xstate/JotaiXStateApp';
+import { JotaiSandbox } from './jotai/JotaiSandbox';
 
 type ComponentKey =
   'canvas-portal' |
@@ -36,7 +37,8 @@ type ComponentKey =
   'canvas-undo-redo' |
   'node-z-index' |
   'xstate-toggle-machine' |
-  'jotai-xstate-light';
+  'jotai-xstate-light' |
+  'jotai-sandbox';
 
 const components: Record<ComponentKey, { name: string; component: React.ComponentType }> = {
   'canvas-portal': {
@@ -110,6 +112,10 @@ const components: Record<ComponentKey, { name: string; component: React.Componen
   'jotai-xstate-light': {
     name: 'Jotai - xState: light',
     component: JotaiXStateApp
+  },
+  'jotai-sandbox': {
+    name: 'Jotai Sandbox',
+    component: JotaiSandbox
   },
 };
 
