@@ -1,5 +1,5 @@
 import { useAtom } from "jotai"
-import { dotsAtom } from "./ScgDots.atoms"
+import { dotsAtom } from "./SvgDots.atoms"
 
 export const SvgDots = () => {
   const [dots] = useAtom(dotsAtom)

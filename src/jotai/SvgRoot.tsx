@@ -1,8 +1,8 @@
 import { atom, useAtom } from "jotai";
 import type { Point } from "./types";
 import { SvgDots } from "./SvgDots";
-import { SvgShape } from "./SvgShape";
-import { addDotAtom, commitDotsAtom } from "./ScgDots.atoms";
+import { SvgShapes } from "./SvgShapes";
+import { addDotAtom, commitDotsAtom } from "./SvgDots.atoms";
 
 const drawingAtom = atom(false);
 
@@ -40,7 +40,7 @@ export const SvgRoot = () => {
       }}
     >
       <rect width='200' height='200' fill="#eee" />
-      <SvgShape />
+      <SvgShapes />
       <SvgDots />
     </svg>
   )
